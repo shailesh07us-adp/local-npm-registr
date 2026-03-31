@@ -1,0 +1,35 @@
+storage: ./storage
+plugins: ./plugins
+
+web:
+  title: oneAutomation Local Registry
+
+listen: 127.0.0.1:4874
+
+auth:
+  htpasswd:
+    file: ./htpasswd
+    max_users: 1000
+
+uplinks:
+  npmjs:
+    url: https://registry.npmjs.org/
+
+packages:
+  '@*/*':
+    access: $all
+    publish: $all
+    unpublish: $all
+    proxy: npmjs
+
+  '**':
+    access: $all
+    publish: $all
+    unpublish: $all
+    proxy: npmjs
+
+server:
+  keepAliveTimeout: 60
+
+log:
+  - { type: stdout, format: pretty, level: http }

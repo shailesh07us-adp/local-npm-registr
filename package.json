@@ -1,0 +1,10 @@
+{
+  "name": "local-npm-registry",
+  "private": true,
+  "scripts": {
+    "start": "verdaccio --config verdaccio.yaml --listen 127.0.0.1:4874"
+  },
+  "dependencies": {
+    "verdaccio": "^6.1.6"
+  }
+}
